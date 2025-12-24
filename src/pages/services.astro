@@ -5,6 +5,7 @@ import ServiceCard from '../components/ServiceCard.astro';
 import CTASection from '../components/CTASection.astro';
 import { industries } from '../data/industries';
 import IndustryCard from '../components/IndustryCard.astro';
+import GradientStrips from '../components/GradientStrips.astro';
 ---
 
 <BaseLayout 
@@ -134,7 +135,8 @@ import IndustryCard from '../components/IndustryCard.astro';
   </section>
 
   <!-- Final CTA -->
-  <section class="py-32 bg-green-gradient">
+  <section class="py-32 relative overflow-hidden">
+    <GradientStrips variant="low-density" />
     <div class="container-custom text-center">
       <h2 class="heading-section text-black mb-12">Looking for a partner?</h2>
       <a href="/contact" class="inline-block px-12 py-4 bg-black text-white text-lg font-bold rounded-lg hover:bg-gray-900 transition-all shadow-2xl">Get a Proposal</a>

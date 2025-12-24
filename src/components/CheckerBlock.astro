@@ -1,4 +1,5 @@
 ---
+import GradientStrips from './GradientStrips.astro';
 interface Props {
   title: string;
   description: string;
@@ -26,8 +27,8 @@ const { title, description, points, imageSide } = Astro.props;
   </div>
 
   <!-- Image/Gradient Block -->
-  <div class={`flex-1 relative bg-green-gradient overflow-hidden ${imageSide === 'right' ? 'order-2' : 'order-1'} h-[400px] lg:h-full`}>
-    <div class="absolute inset-0 bg-pattern-stripes opacity-20"></div>
+  <div class={`flex-1 relative overflow-hidden ${imageSide === 'right' ? 'order-2' : 'order-1'} h-[400px] lg:h-full`}>
+    <GradientStrips variant="high-density" />
     <div class="absolute inset-0 flex items-center justify-center">
       <h3 class="text-black text-[64px] font-bold text-center leading-tight drop-shadow-sm px-8">
         {title === 'Why Sehetmeyer ?' ? 'Why Sehetmeyer ?' : 'Our Process'}

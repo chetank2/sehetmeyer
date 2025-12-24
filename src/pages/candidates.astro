@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ContactForm from '../components/ContactForm.astro';
 import CTASection from '../components/CTASection.astro';
+import GradientStrips from '../components/GradientStrips.astro';
 
 const benefits = [
   {
@@ -116,7 +117,8 @@ const openRoles = [
   </section>
 
   <!-- Final CTA -->
-  <section class="py-32 bg-green-gradient">
+  <section class="py-32 relative overflow-hidden">
+    <GradientStrips variant="low-density" />
     <div class="container-custom text-center">
       <h2 class="heading-section text-black mb-6">Ready for a change?</h2>
       <p class="text-xl text-black/80 mb-12 max-w-2xl mx-auto font-medium">Your next role is waiting.</p>

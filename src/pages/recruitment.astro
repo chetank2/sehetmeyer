@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CTASection from '../components/CTASection.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
+import GradientStrips from '../components/GradientStrips.astro';
 
 const roles = [
   { title: 'Frontend Engineers', description: 'React, Vue, Angular, TypeScript experts' },
@@ -144,7 +145,8 @@ const faqs = [
   </section>
 
   <!-- Final CTA -->
-  <section class="py-32 bg-green-gradient">
+  <section class="py-32 relative overflow-hidden">
+    <GradientStrips variant="low-density" />
     <div class="container-custom text-center">
       <h2 class="heading-section text-black mb-6">Need urgent hiring?</h2>
       <p class="text-xl text-black/80 mb-12 max-w-2xl mx-auto font-medium">We can start today.</p>

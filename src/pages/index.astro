@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CheckerBlock from '../components/CheckerBlock.astro';
+import GradientStrips from '../components/GradientStrips.astro';
 ---
 
 <BaseLayout title="IT Consulting & Recruitment, Done Right">
@@ -85,8 +86,8 @@ import CheckerBlock from '../components/CheckerBlock.astro';
   </section>
 
   <!-- Featured Roles (Gradient) -->
-  <section class="py-32 bg-green-gradient relative overflow-hidden">
-    <div class="absolute inset-0 bg-pattern-stripes opacity-20"></div>
+  <section class="py-32 relative overflow-hidden">
+    <GradientStrips variant="low-density" />
     <div class="container-custom relative z-10 text-center">
       <h2 class="heading-section text-black mb-16">Roles we hire most</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-20 text-xs font-bold uppercase tracking-widest text-black">

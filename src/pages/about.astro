@@ -1,8 +1,10 @@
+```
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import ContactForm from '../components/ContactForm.astro';
 import CTASection from '../components/CTASection.astro';
-import StatsRow from '../components/StatsRow.astro';
+import GradientStrips from '../components/GradientStrips.astro';
 
 const stats = [
   { value: '12+', label: 'Years in Business' },
@@ -118,7 +120,9 @@ const team = [
   </section>
 
   <!-- Final CTA -->
-  <section class="py-32 bg-green-gradient">
+  <!-- CTA Section -->
+  <section class="py-32 relative overflow-hidden">
+    <GradientStrips variant="low-density" />
     <div class="container-custom text-center">
       <h2 class="heading-section text-black mb-6">Want to work together?</h2>
       <p class="text-xl text-black/80 mb-12 max-w-2xl mx-auto font-medium">Let's discuss your next project or hire.</p>

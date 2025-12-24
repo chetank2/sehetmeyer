@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import { caseStudies, getCaseStudy } from '../../data/case-studies';
+import GradientStrips from '../../components/GradientStrips.astro';
 
 export function getStaticPaths() {
   return caseStudies.map((study) => ({
@@ -33,9 +34,12 @@ const { study } = Astro.props;
         </p>
         
         <!-- Result Highlight -->
-        <div class="mt-16 p-12 bg-green-gradient rounded-3xl shadow-xl inline-block">
-          <p class="text-sm text-black/60 uppercase tracking-widest font-bold mb-3">Key Result</p>
-          <p class="text-4xl lg:text-5xl font-bold text-black">{study.result}</p>
+        <div class="mt-16 p-12 rounded-3xl shadow-xl inline-block relative overflow-hidden">
+          <GradientStrips variant="low-density" />
+          <div class="relative z-10">
+            <p class="text-sm text-black/60 uppercase tracking-widest font-bold mb-3">Key Result</p>
+            <p class="text-4xl lg:text-5xl font-bold text-black">{study.result}</p>
+          </div>
         </div>
       </div>
     </div>
