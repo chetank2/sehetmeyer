@@ -7,55 +7,56 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20">
       <!-- Brand Column -->
       <div>
-        <div class="flex items-center gap-2 mb-8">
-          <div class="w-6 h-6 bg-white rounded flex items-center justify-center">
+        <a href="/" class="flex items-center gap-2 mb-8 group">
+          <div class="w-6 h-6 bg-white rounded flex items-center justify-center transition-transform group-hover:scale-110">
             <span class="text-black text-[8px] font-bold">S</span>
           </div>
-          <span class="text-xl font-bold tracking-tight">Sehetmeyer</span>
-        </div>
+          <span class="text-xl font-bold tracking-tight text-white">Sehetmeyer</span>
+        </a>
       </div>
 
       <!-- Links Columns -->
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Company</h3>
-          <ul class="space-y-4 text-sm font-medium">
-            <li><a href="/index" class="hover:text-accent transition-colors">Home</a></li>
-            <li><a href="/about" class="hover:text-accent transition-colors">About</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Legal</h3>
-          <ul class="space-y-4 text-sm font-medium text-gray-400">
-            <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="/terms" class="hover:text-white transition-colors">Terms and Conditions</a></li>
-          </ul>
-        </div>
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Company</h3>
+        <ul class="space-y-4 text-sm font-medium">
+          <li><a href="/" class="hover:text-accent transition-colors">Home</a></li>
+          <li><a href="/about" class="hover:text-accent transition-colors">About</a></li>
+          <li><a href="/employers" class="hover:text-accent transition-colors">For Employers</a></li>
+          <li><a href="/candidates" class="hover:text-accent transition-colors">For Candidates</a></li>
+          <li><a href="/contact" class="hover:text-accent transition-colors">Contact</a></li>
+        </ul>
       </div>
 
       <div>
         <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Offerings</h3>
         <ul class="space-y-4 text-sm font-medium text-gray-400">
-          <li><a href="/services" class="hover:text-white transition-colors">Customer experience</a></li>
-          <li><a href="/services" class="hover:text-white transition-colors">Product innovation</a></li>
-          <li><a href="/services" class="hover:text-white transition-colors">Scaling IT</a></li>
-          <li><a href="/services" class="hover:text-white transition-colors">Productivity metrics evaluation</a></li>
-          <li><a href="/services" class="hover:text-white transition-colors">Digital experience management</a></li>
+          <li><a href="/consulting" class="hover:text-white transition-colors">IT Consulting</a></li>
+          <li><a href="/recruitment" class="hover:text-white transition-colors">IT Recruitment</a></li>
+          <li><a href="/industries" class="hover:text-white transition-colors">Industries</a></li>
+          <li><a href="/insights" class="hover:text-white transition-colors">Insights</a></li>
+          <li><a href="/case-studies" class="hover:text-white transition-colors">Case Studies</a></li>
         </ul>
       </div>
 
-      <!-- Office Column -->
+      <!-- Office & Legal Column -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Our Office</h3>
-        <p class="text-sm font-medium text-gray-400 leading-relaxed mb-8">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Reach Us</h3>
+        <p class="text-sm font-medium text-gray-400 leading-relaxed mb-6">
           M-D ionic technologies<br />
           B-0 A first floor Apartment 248 Victoria peak hatter,<br />
           Kowloon, Hong Kong
         </p>
         
-        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">General Inquiries</h3>
-        <p class="text-sm font-medium text-gray-400 mb-2">hello@sehetmeyer.com</p>
-        <p class="text-sm font-bold">(+44) 932 449 0885</p>
+        <div class="space-y-2 mb-8">
+          <p class="text-sm font-medium text-gray-400">hello@sehetmeyer.com</p>
+          <p class="text-sm font-bold text-white">(+44) 932 449 0885</p>
+        </div>
+
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Legal</h3>
+        <ul class="space-y-2 text-[10px] font-bold uppercase tracking-widest text-gray-500">
+          <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="hover:text-white transition-colors">Terms & Conditions</a></li>
+        </ul>
 
         <div class="flex gap-4 mt-8">
           <a href="#" class="text-gray-400 hover:text-white transition-all"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>

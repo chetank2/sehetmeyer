@@ -42,30 +42,30 @@ const {
   </div>
   
   <!-- Content -->
-  <div class="relative z-10 container-custom w-full">
+  <div class="relative z-10 container-custom w-full pt-[120px] pb-32">
     <div class={`${centered ? 'text-center max-w-4xl mx-auto' : 'max-w-3xl'}`}>
       <h1 class="heading-hero text-black mb-8 animate-fade-in opacity-0" style="animation-delay: 0.2s;">
         {title}
       </h1>
-      <p class="text-xl lg:text-2xl text-black/80 mb-12 animate-fade-in opacity-0 leading-relaxed" style="animation-delay: 0.4s;">
+      <p class="text-xl lg:text-2xl text-black/80 mb-12 animate-fade-in opacity-0 leading-relaxed max-w-2xl mx-auto" style="animation-delay: 0.4s;">
         {subtitle}
       </p>
       
-      <div class={`flex flex-col sm:flex-row gap-4 ${centered ? 'justify-center' : ''} animate-fade-in opacity-0`} style="animation-delay: 0.6s;">
-        {primaryCta && (
-          <a 
-            href={primaryCta.href}
-            class="px-8 py-4 bg-black text-white text-lg font-medium rounded-lg hover:bg-gray-900 transition-all shadow-[0_4px_14px_0_rgba(0,0,0,0.25)]"
-          >
-            {primaryCta.text}
-          </a>
-        )}
+      <div class={`flex flex-col sm:flex-row gap-4 ${centered ? 'justify-center items-center' : ''} animate-fade-in opacity-0`} style="animation-delay: 0.6s;">
         {secondaryCta && (
           <a 
             href={secondaryCta.href}
-            class="px-8 py-4 bg-white/20 backdrop-blur-md text-black border border-black/10 text-lg font-medium rounded-lg hover:bg-white/30 transition-all"
+            class="px-8 py-3 bg-transparent border border-black/20 text-black text-sm font-medium rounded-lg hover:bg-black/5 transition-all"
           >
             {secondaryCta.text}
+          </a>
+        )}
+        {primaryCta && (
+          <a 
+            href={primaryCta.href}
+            class="px-8 py-3 bg-black text-white text-sm font-bold rounded-lg hover:bg-gray-900 transition-all shadow-md"
+          >
+            {primaryCta.text}
           </a>
         )}
       </div>
@@ -79,9 +79,9 @@ const {
           <div class="flex justify-center items-center gap-12 opacity-80 mix-blend-multiply">
               {[1, 2, 3, 4, 5].map(() => (
               <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 bg-black rounded-tr-[16px] rounded-bl-[16px] flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2L2 22H22L12 2Z" fill="white"/>
+                  <div class="flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 4L4 20H20L12 4Z" fill="black"/>
                     </svg>
                   </div>
                   <span class="text-lg font-bold text-black tracking-tight">Konic Technologies</span>
