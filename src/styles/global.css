@@ -42,8 +42,8 @@
   }
 
   .heading-hero {
-    font-size: var(--text-hero);
-    font-weight: 700;
+    font-size: 80px;
+    font-weight: 500;
     line-height: 1.0;
     letter-spacing: -0.02em;
   }
