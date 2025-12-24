@@ -13,13 +13,12 @@ const { title, description, points, imageSide } = Astro.props;
   <!-- Text Content Path -->
   <div class={`flex-1 flex items-center ${imageSide === 'right' ? 'order-1' : 'order-2'}`}>
     <div class={`max-w-xl mx-auto px-12 py-20 ${imageSide === 'right' ? 'lg:pr-0' : 'lg:pl-0'}`}>
-      <p class="text-sm font-bold text-black uppercase tracking-widest mb-4">Why Sehetmeyer?</p>
-      <h2 class="heading-section text-black mb-8">{title}</h2>
+      <!-- Content only, title is in the colored block -->
       <div class="space-y-6">
         {points.map((point) => (
           <div>
             <p class="text-lg font-bold text-black mb-1">{point.split(':')[0]}</p>
-            <p class="text-gray-600 leading-relaxed">{point.split(':')[1]}</p>
+            <p class="text-black/80 leading-relaxed">{point.split(':')[1]}</p>
           </div>
         ))}
       </div>

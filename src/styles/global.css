@@ -13,6 +13,7 @@
   --text-h1: 64px;
   --text-h2: 40px;
   --text-h3: 24px;
+  --text-body: 16px;
 }
 
 
@@ -26,21 +27,24 @@
 
 @layer utilities {
   .bg-green-gradient {
-    background: linear-gradient(135deg, #4AF28F 0%, #34D399 100%);
+    /* Fallback/Base */
+    background: #4AF28F;
   }
 
-  /* Vertical stripe pattern seen in Figma Hero */
-  .bg-pattern-stripes {
-    background-image: linear-gradient(to right,
-        rgba(255, 255, 255, 0.1) 1px,
-        transparent 1px);
-    background-size: 15% 100%;
+  /* Hero Column Gradients */
+  .hero-column {
+    background: linear-gradient(180deg, rgba(74, 242, 143, 0.4) 0%, rgba(52, 211, 153, 0.8) 100%);
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-column:nth-child(even) {
+    background: linear-gradient(180deg, rgba(90, 238, 165, 0.5) 0%, rgba(60, 220, 160, 0.9) 100%);
   }
 
   .heading-hero {
     font-size: var(--text-hero);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.0;
     letter-spacing: -0.02em;
   }
 
@@ -53,12 +57,15 @@
 
   .heading-card {
     font-size: var(--text-h2);
-    font-weight: 600;
-    line-height: 1.3;
+    font-weight: 500;
+    /* Medium per Figma */
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 
   .container-custom {
-    max-width: 1598px;
+    max-width: 1920px;
+    /* Full width approach per Figma 1920w frame */
     margin-left: auto;
     margin-right: auto;
     padding-left: 161px;

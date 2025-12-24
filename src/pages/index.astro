@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import TrustedBy from '../components/TrustedBy.astro';
 import CheckerBlock from '../components/CheckerBlock.astro';
 ---
 
@@ -13,27 +12,27 @@ import CheckerBlock from '../components/CheckerBlock.astro';
     subtitle="We help companies build strong tech teams and deliver reliable IT solutions—fast, simple, and trusted."
     primaryCta={{ text: "Book a Call", href: "/contact" }}
     secondaryCta={{ text: "Explore Services", href: "/services" }}
+    showTrustedBy={true}
   />
 
-  <!-- Trusted By (White) -->
-  <TrustedBy />
+
 
   <!-- What we do? (White) -->
   <section class="py-24 bg-white">
-    <div class="container-custom">
-      <h2 class="heading-hero text-black text-center mb-24">What we do?</h2>
+    <div class="container-custom flex flex-col gap-12">
+      <h2 class="heading-hero text-black text-center">What we do?</h2>
       
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="flex flex-col lg:flex-row gap-8 justify-center items-stretch">
         <ServiceCard 
           title="IT Consulting"
-          tagline="BUILD BETTER SYSTEMS"
+          tagline="Build better systems"
           description="From planning to delivery, we improve your product, process, and tech stack."
           href="/consulting"
           linkText="View Consulting"
         />
         <ServiceCard 
           title="IT Recruitment"
-          tagline="HIRE THE RIGHT TALENT"
+          tagline="Hire the right talent"
           description="We find, screen, and deliver quality candidates for your team."
           href="/recruitment"
           linkText="View Recruitment"
