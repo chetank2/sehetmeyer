@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  primaryCta: {
+    text: string;
+    href: string;
+  };
+  secondaryCta?: {
+    text: string;
+    href: string;
+  };
+  variant?: 'light' | 'dark';
+}
+
+const { title, description, primaryCta, secondaryCta, variant = 'dark' } = Astro.props;
+
+const bgClass = variant === 'dark' ? 'bg-black' : 'bg-gray-50';
+const titleClass = variant === 'dark' ? 'text-white' : 'text-black';
+const descClass = variant === 'dark' ? 'text-gray-300' : 'text-gray-600';
+const primaryBtnClass = variant === 'dark' 
+  ? 'bg-white text-black hover:bg-gray-100' 
+  : 'bg-black text-white hover:bg-gray-800';
+const secondaryBtnClass = variant === 'dark'
+  ? 'border-white text-white hover:bg-white hover:text-black'
+  : 'border-black text-black hover:bg-black hover:text-white';
+---
+
+<section class={`py-20 ${bgClass}`}>
+  <div class="max-w-[1598px] mx-auto px-6 lg:px-[161px] text-center">
+    <h2 class={`heading-section mb-4 ${titleClass}`}>
+      {title}
+    </h2>
+    <p class={`text-lg max-w-2xl mx-auto mb-8 ${descClass}`}>
+      {description}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a 
+        href={primaryCta.href}
+        class={`inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg transition-all ${primaryBtnClass}`}
+      >
+        {primaryCta.text}
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      {secondaryCta && (
+        <a 
+          href={secondaryCta.href}
+          class={`inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border-2 transition-all ${secondaryBtnClass}`}
+        >
+          {secondaryCta.text}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

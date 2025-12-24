@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const roles = [
+  { title: 'Frontend Engineers', description: 'React, Vue, Angular, TypeScript experts' },
+  { title: 'Backend Engineers', description: 'Node.js, Python, Go, Java developers' },
+  { title: 'Full Stack Engineers', description: 'Versatile engineers across the stack' },
+  { title: 'DevOps/SRE', description: 'Cloud, infrastructure, and reliability engineers' },
+  { title: 'Data Engineers', description: 'Pipeline, analytics, and ML specialists' },
+  { title: 'Mobile Engineers', description: 'iOS, Android, and cross-platform developers' },
+  { title: 'Engineering Managers', description: 'Technical leaders who scale teams' },
+  { title: 'CTOs & VPs', description: 'Executive technical leadership' },
+];
+
+const process = [
+  {
+    step: '01',
+    title: 'Requirements Deep Dive',
+    description: 'We learn your technology stack, team culture, and what success looks like for each role.',
+  },
+  {
+    step: '02',
+    title: 'Targeted Sourcing',
+    description: 'Our technical recruiters source candidates through our network, job boards, and direct outreach.',
+  },
+  {
+    step: '03',
+    title: 'Technical Screening',
+    description: 'Candidates complete technical assessments designed with your team to match your standards.',
+  },
+  {
+    step: '04',
+    title: 'Culture Fit Interviews',
+    description: 'We evaluate soft skills and culture alignment before presenting candidates.',
+  },
+  {
+    step: '05',
+    title: 'Candidate Presentation',
+    description: 'You receive detailed profiles with our assessment notes and interview recommendations.',
+  },
+  {
+    step: '06',
+    title: 'Ongoing Support',
+    description: 'We guide candidates through your process and support onboarding for successful placements.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What is your placement guarantee?',
+    answer: 'We offer a 90-day guarantee on all permanent placements. If a candidate leaves or is terminated within 90 days, we will find a replacement at no additional cost.',
+  },
+  {
+    question: 'How long does it take to fill a role?',
+    answer: 'Typical time-to-fill is 3-6 weeks for senior roles. We start presenting qualified candidates within the first 2 weeks of engagement.',
+  },
+  {
+    question: 'Do you offer contract placements?',
+    answer: 'Yes, we offer both contract and full-time placements. Contract-to-hire arrangements are also available for companies who want to evaluate candidates before committing.',
+  },
+  {
+    question: 'What are your fees?',
+    answer: 'Our fees are competitive and based on role seniority and complexity. We offer retained and contingency models depending on your needs. Contact us for a detailed proposal.',
+  },
+];
+---
+
+<BaseLayout 
+  title="IT Recruitment" 
+  description="Find exceptional engineering talent with Sehetmeyer. We recruit senior engineers, technical leads, and CTOs for growing technology companies."
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Hire better tech talent, faster"
+    subtitle="We shortlist, screen, and deliver candidates who fit your skill needs and team culture."
+    primaryCta={{ text: "Share a Job Requirement", href: "/employers" }}
+  />
+
+  <!-- Roles We Hire -->
+  <section class="py-24 bg-white">
+    <div class="container-custom">
+      <h2 class="heading-section text-black mb-16">Roles We Hire</h2>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: "Engineering", desc: "Frontend, Backend, Full Stack, Mobile" },
+          { title: "Data", desc: "Data Engineer, Analyst, ML" },
+          { title: "DevOps & Cloud", desc: "Infrastructure and reliability" },
+          { title: "QA & Automation", desc: "Quality and testing" },
+          { title: "Product & Design", desc: "Product management and UI/UX" },
+          { title: "Tech Leads", desc: "Technical leadership and managers" }
+        ].map((role) => (
+          <div class="p-8 bg-gray-50 rounded-xl border border-gray-100">
+            <h3 class="text-xl font-bold text-black mb-2">{role.title}</h3>
+            <p class="text-black/60 font-medium">{role.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Screening Method -->
+  <section class="py-24 bg-gray-50">
+    <div class="container-custom">
+      <h2 class="heading-section text-black mb-16">Our Screening Method</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        {[
+          "Resume quality check",
+          "Skills validation (tools/stack)",
+          "Communication and ownership check",
+          "Culture fit and expectations match",
+          "Reference checks (if needed)"
+        ].map((step, i) => (
+          <div class="flex flex-col items-center text-center">
+            <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6 font-bold">{i+1}</div>
+            <p class="text-lg font-bold text-black">{step}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Hiring Models -->
+  <section class="py-32 bg-white">
+    <div class="container-custom text-center">
+      <h2 class="heading-section text-black mb-16">Hiring Models</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-12 border border-gray-100 rounded-2xl bg-gray-50">
+          <h3 class="text-2xl font-bold text-black mb-4">Contract staffing</h3>
+          <p class="text-black/60 font-medium">Flexible hiring for short or long-term needs.</p>
+        </div>
+        <div class="p-12 border border-accent rounded-2xl bg-white shadow-lg">
+          <h3 class="text-2xl font-bold text-black mb-4">Full-time hiring</h3>
+          <p class="text-black/60 font-medium">Build your core team with permanent hires.</p>
+        </div>
+        <div class="p-12 border border-gray-100 rounded-2xl bg-gray-50">
+          <h3 class="text-2xl font-bold text-black mb-4">RPO / Ongoing support</h3>
+          <p class="text-black/60 font-medium">Scale your entire team with dedicated support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-32 bg-green-gradient">
+    <div class="container-custom text-center">
+      <h2 class="heading-section text-black mb-6">Need urgent hiring?</h2>
+      <p class="text-xl text-black/80 mb-12 max-w-2xl mx-auto font-medium">We can start today.</p>
+      <a href="/employers" class="inline-block px-12 py-4 bg-black text-white text-lg font-bold rounded-lg hover:bg-gray-900 transition-all shadow-2xl">Start Hiring Now</a>
+    </div>
+  </section>
+</BaseLayout>
+

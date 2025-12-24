@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import IndustryCard from '../components/IndustryCard.astro';
+import { industries } from '../data/industries';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout 
+  title="Industries We Serve" 
+  description="Explore the industries where Sehetmeyer provides expert IT consulting and recruitment services."
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Industries"
+    subtitle="We hire talent for sectors that need strong technology and clear delivery."
+  />
+
+  <!-- Industries Grid -->
+  <section class="py-24 bg-white">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {industries.map((industry) => (
+          <IndustryCard 
+            name={industry.name}
+            icon={industry.icon}
+            description={industry.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section for "Why these industries" -->
+  <section class="py-32 bg-gray-50">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="heading-section text-black mb-8">Why these sectors?</h2>
+        <p class="text-xl text-black/60 font-medium leading-relaxed">
+          We focus on industries where precision, security, and scalability are critical. Our consultants and candidates understand the specific challenges and regulatory environments of these fields.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <CTASection 
+    title="Don't see your industry?"
+    description="We often work with companies in related fields that share similar technical challenges. Let's discuss if we can help."
+    primaryCta={{ text: "Talk to an Expert", href: "/contact" }}
+    variant="dark"
+  />
+</BaseLayout>

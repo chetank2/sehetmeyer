@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { caseStudies, getCaseStudy } from '../../data/case-studies';
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+---
+
+<BaseLayout 
+  title={study.title}
+  description={study.excerpt}
+>
+  <!-- Hero Section -->
+  <section class="py-32 bg-white">
+    <div class="container-custom">
+      <div class="max-w-5xl">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="px-3 py-1 bg-accent/20 rounded text-sm font-bold text-black uppercase tracking-widest">{study.industry}</span>
+          <span class="text-black/40 font-bold uppercase tracking-widest">{study.client}</span>
+        </div>
+        <h1 class="heading-hero text-black mb-10 leading-tight">
+          {study.title}
+        </h1>
+        <p class="text-2xl text-black/60 font-medium leading-relaxed max-w-4xl">
+          {study.excerpt}
+        </p>
+        
+        <!-- Result Highlight -->
+        <div class="mt-16 p-12 bg-green-gradient rounded-3xl shadow-xl inline-block">
+          <p class="text-sm text-black/60 uppercase tracking-widest font-bold mb-3">Key Result</p>
+          <p class="text-4xl lg:text-5xl font-bold text-black">{study.result}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-32 bg-gray-50">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-24">
+        <div class="lg:col-span-2 space-y-24">
+          <!-- Challenge -->
+          <div>
+            <h2 class="text-4xl font-bold text-black mb-8">The Challenge</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed">{study.challenge}</p>
+          </div>
+
+          <!-- Solution -->
+          <div>
+            <h2 class="text-4xl font-bold text-black mb-8">Our Solution</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed">{study.solution}</p>
+          </div>
+
+          <!-- Outcome -->
+          <div>
+            <h2 class="text-4xl font-bold text-black mb-8">The Outcome</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed">{study.outcome}</p>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-12">
+          <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm">
+            <h3 class="text-2xl font-bold text-black mb-8">Overview</h3>
+            <dl class="space-y-8">
+              <div>
+                <dt class="text-sm text-black/40 font-bold uppercase tracking-widest mb-2">Client</dt>
+                <dd class="text-xl font-bold text-black">{study.client}</dd>
+              </div>
+              <div>
+                <dt class="text-sm text-black/40 font-bold uppercase tracking-widest mb-2">Industry</dt>
+                <dd class="text-xl font-bold text-black">{study.industry}</dd>
+              </div>
+            </dl>
+          </div>
+
+          {study.testimonial && (
+            <div class="bg-black text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-8 opacity-10">
+                <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+              </div>
+              <blockquote class="text-xl text-white/80 font-medium italic mb-8 relative z-10">
+                "{study.testimonial.quote}"
+              </blockquote>
+              <div class="relative z-10">
+                <p class="text-xl font-bold text-white">{study.testimonial.author}</p>
+                <p class="text-white/40 font-bold uppercase tracking-widest text-sm">{study.testimonial.role}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back Link -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="container-custom">
+      <a 
+        href="/case-studies"
+        class="inline-flex items-center text-black font-bold text-lg hover:gap-4 transition-all"
+      >
+        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        Back to all case studies
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTASection 
+    title="Want similar results?"
+    description="Let's discuss how we can help you achieve your goals."
+    primaryCta={{ text: "Talk to an Expert", href: "/contact" }}
+    variant="dark"
+  />
+</BaseLayout>
+

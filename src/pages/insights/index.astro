@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import { blogPosts } from '../../data/blog-posts';
+---
+
+<BaseLayout 
+  title="Insights" 
+  description="Expert insights on IT consulting, engineering recruitment, and technology trends from the Sehetmeyer team."
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Insights"
+    subtitle="Latest updates and tips on IT consulting, recruitment, and technology trends."
+  />
+
+  <!-- Blog Grid -->
+  <section class="py-24 bg-gray-50">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogPosts.map((post) => (
+          <BlogCard 
+            title={post.title}
+            excerpt={post.excerpt}
+            slug={post.slug}
+            date={post.date}
+            category={post.category}
+            readTime={post.readTime}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTASection 
+    title="Stay updated"
+    description="Get the latest insights on technology and talent delivered to your inbox."
+    primaryCta={{ text: "Talk to an Expert", href: "/contact" }}
+    variant="dark"
+  />
+</BaseLayout>
+

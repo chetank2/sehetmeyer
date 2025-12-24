@@ -1,0 +1,93 @@
+---
+const navLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/consulting', label: 'Consulting' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/case-studies', label: 'Case Studies' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+  <nav class="max-w-[1598px] mx-auto px-6 lg:px-[161px] h-[88px] flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+        <span class="text-white font-bold text-sm">S</span>
+      </div>
+      <span class="text-xl font-semibold text-black">Sehetmeyer</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-6">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href}
+          class={`text-base font-normal transition-colors hover:text-black ${
+            currentPath === link.href || currentPath.startsWith(link.href + '/') 
+              ? 'text-black font-medium' 
+              : 'text-gray-600'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a 
+        href="/contact" 
+        class="ml-2 px-5 py-2.5 bg-black text-white text-base font-normal rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
+      >
+        Contact
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="mobile-menu-button"
+      class="lg:hidden p-2 text-gray-600 hover:text-black transition-colors"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100 shadow-lg">
+    <div class="px-6 py-4 space-y-3">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href}
+          class={`block py-2 text-base transition-colors hover:text-black ${
+            currentPath === link.href ? 'text-black font-medium' : 'text-gray-600'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a 
+        href="/contact" 
+        class="block w-full text-center mt-4 px-5 py-2.5 bg-black text-white text-base font-normal rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        Contact
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-[88px]"></div>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Terms of Service" 
+  description="Sehetmeyer Terms of Service - Read our terms and conditions for using our website and services."
+>
+  <section class="py-32 bg-white">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-hero text-black mb-12">Terms of Service</h1>
+        <p class="text-xl text-black/40 font-bold mb-20">Last updated: December 2024</p>
+
+        <div class="space-y-20">
+          <section>
+            <h2 class="text-4xl font-bold text-black mb-8">Agreement to Terms</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed">
+              By accessing or using the Sehetmeyer website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-4xl font-bold text-black mb-8">Description of Services</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed">
+              Sehetmeyer provides IT consulting services and IT recruitment services. Our consulting services include system architecture, cloud migration, DevOps implementation, and related technology services. Our recruitment services help connect qualified candidates with employers seeking technical talent.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-4xl font-bold text-black mb-8">User Responsibilities</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed mb-6">
+              When using our services, you agree to:
+            </p>
+            <ul class="space-y-4">
+              {[
+                "Provide accurate and complete information",
+                "Maintain the confidentiality of any account credentials",
+                "Use our services only for lawful purposes",
+                "Not interfere with or disrupt our services"
+              ].map(item => (
+                <li class="flex items-start gap-4 text-xl text-black/60 font-medium">
+                  <span class="w-1.5 h-1.5 bg-accent rounded-full mt-3 block flex-shrink-0"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-4xl font-bold text-black mb-8">Limitation of Liability</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed">
+              To the maximum extent permitted by law, Sehetmeyer shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-4xl font-bold text-black mb-8">Contact Us</h2>
+            <p class="text-xl text-black/60 font-medium leading-relaxed">
+              If you have any questions about these Terms of Service, please contact us at:
+            </p>
+            <p class="text-2xl font-bold text-black mt-10">
+              legal@sehetmeyer.com
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

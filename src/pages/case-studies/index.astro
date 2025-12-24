@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import { caseStudies } from '../../data/case-studies';
+---
+
+<BaseLayout 
+  title="Case Studies" 
+  description="Explore how Sehetmeyer has helped companies build better systems and hire exceptional talent. Real results from real clients."
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Case Studies"
+    subtitle="Read how we helped our clients solve technical challenges and hire better talent."
+  />
+
+  <!-- Case Studies Grid -->
+  <section class="py-24 bg-gray-50">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {caseStudies.map((study) => (
+          <CaseStudyCard 
+            title={study.title}
+            client={study.client}
+            industry={study.industry}
+            excerpt={study.excerpt}
+            slug={study.slug}
+            result={study.result}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTASection 
+    title="Ready to be our next success story?"
+    description="Let's discuss how we can help you achieve similar results."
+    primaryCta={{ text: "Talk to an Expert", href: "/contact" }}
+    variant="dark"
+  />
+</BaseLayout>
+

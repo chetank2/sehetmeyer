@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import CTASection from '../components/CTASection.astro';
+
+const benefits = [
+  {
+    title: 'Pre-vetted Candidates',
+    description: 'Every candidate undergoes technical assessments before reaching you.',
+    icon: '✓',
+  },
+  {
+    title: 'Fast Turnaround',
+    description: 'Receive qualified candidates within 2-3 weeks of engagement.',
+    icon: '⚡',
+  },
+  {
+    title: 'Culture Matching',
+    description: 'We evaluate soft skills and team fit, not just technical abilities.',
+    icon: '🤝',
+  },
+  {
+    title: '90-Day Guarantee',
+    description: 'If a placement doesn\'t work out, we find a replacement free of charge.',
+    icon: '🛡️',
+  },
+  {
+    title: 'Technical Expertise',
+    description: 'Our recruiters are former engineers who speak your language.',
+    icon: '💻',
+  },
+  {
+    title: 'Flexible Models',
+    description: 'Contract, full-time, or contract-to-hire arrangements available.',
+    icon: '📋',
+  },
+];
+---
+
+<BaseLayout 
+  title="For Employers" 
+  description="Find exceptional engineering talent for your team. Sehetmeyer helps companies hire senior developers, technical leads, and engineering managers."
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="For Employers"
+    subtitle="Tell us what you need. We will bring the right people and keep the process simple."
+    primaryCta={{ text: "Send Requirement", href: "#form" }}
+  />
+
+  <!-- What you get -->
+  <section class="py-24 bg-white">
+    <div class="container-custom">
+      <h2 class="heading-section text-black mb-16 text-center">What you get</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        {[
+          "Fast shortlist",
+          "Clear candidate reports",
+          "Interview scheduling support",
+          "Offer and joining support",
+          "Post-joining follow-up"
+        ].map((benefit) => (
+          <div class="p-8 bg-gray-50 rounded-xl border border-gray-100 text-center flex flex-col items-center">
+            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-lg font-bold text-black">{benefit}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section id="form" class="py-32 bg-gray-50">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto bg-white p-12 lg:p-20 rounded-3xl shadow-xl">
+        <div class="text-center mb-16">
+          <h2 class="heading-section text-black mb-6">Share your requirement</h2>
+          <p class="text-xl text-black/60 font-medium leading-relaxed">
+            Fill out the form below and we'll start finding the right talent for you immediately.
+          </p>
+        </div>
+        <ContactForm variant="employer" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-32 bg-green-gradient">
+    <div class="container-custom text-center">
+      <h2 class="heading-section text-black mb-6">Need urgent hiring?</h2>
+      <p class="text-xl text-black/80 mb-12 max-w-2xl mx-auto font-medium">We can start today.</p>
+      <a href="/contact" class="inline-block px-12 py-4 bg-black text-white text-lg font-bold rounded-lg hover:bg-gray-900 transition-all shadow-2xl">Contact Us</a>
+    </div>
+  </section>
+</BaseLayout>
+

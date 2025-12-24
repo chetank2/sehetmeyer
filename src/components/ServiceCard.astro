@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  tagline: string;
+  description: string;
+  href: string;
+  linkText?: string;
+}
+
+const { title, tagline, description, href, linkText = 'Learn more' } = Astro.props;
+---
+
+<div class="bg-white p-12 text-center rounded-[12px] hover:shadow-sm transition-all group max-w-2xl mx-auto">
+  <h3 class="heading-card text-black mb-4">
+    {title}
+  </h3>
+  <div class="space-y-4 mb-8">
+    <p class="text-sm font-bold text-black uppercase tracking-widest opacity-40">
+      {tagline}
+    </p>
+    <p class="text-lg text-gray-500 leading-relaxed">
+      {description}
+    </p>
+  </div>
+  <a 
+    href={href}
+    class="inline-block px-10 py-3 bg-white border border-gray-200 text-black text-sm font-bold rounded-lg hover:border-black transition-all"
+  >
+    {linkText}
+  </a>
+</div>

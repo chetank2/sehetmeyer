@@ -1,0 +1,27 @@
+---
+const partners = [
+  'Konic Technologies',
+  'Konic Technologies',
+  'Konic Technologies',
+  'Konic Technologies'
+];
+---
+
+<section class="py-12 bg-white border-b border-gray-100 overflow-hidden">
+  <div class="container-custom">
+    <p class="text-sm font-medium text-gray-400 text-center mb-8 uppercase tracking-widest">
+      Trusted by growing teams and enterprise partners
+    </p>
+    
+    <div class="flex justify-between items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+      {partners.map((partner) => (
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-black rounded flex items-center justify-center">
+            <span class="text-white text-[10px] font-bold">K</span>
+          </div>
+          <span class="text-xl font-bold text-black tracking-tight">{partner}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

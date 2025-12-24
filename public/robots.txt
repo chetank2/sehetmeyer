@@ -1,0 +1,6 @@
+# robots.txt for Sehetmeyer
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sehetmeyer.com/sitemap-index.xml

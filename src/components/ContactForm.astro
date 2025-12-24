@@ -1,0 +1,117 @@
+---
+interface Props {
+  variant?: 'contact' | 'employer' | 'candidate';
+}
+
+const { variant = 'contact' } = Astro.props;
+
+const formFields = {
+  contact: [
+    { name: 'name', label: 'Full Name', type: 'text', required: true },
+    { name: 'email', label: 'Email Address', type: 'email', required: true },
+    { name: 'company', label: 'Company', type: 'text', required: false },
+    { name: 'subject', label: 'Subject', type: 'text', required: true },
+    { name: 'message', label: 'Message', type: 'textarea', required: true },
+  ],
+  employer: [
+    { name: 'company', label: 'Company Name', type: 'text', required: true },
+    { name: 'name', label: 'Contact Person', type: 'text', required: true },
+    { name: 'email', label: 'Email Address', type: 'email', required: true },
+    { name: 'hiring_type', label: 'Hiring Type (Contract / Full-time)', type: 'text', required: true },
+    { name: 'role_title', label: 'Role Title', type: 'text', required: true },
+    { name: 'skills', label: 'Skills Needed', type: 'text', required: true },
+    { name: 'experience', label: 'Experience Range', type: 'text', required: true },
+    { name: 'location', label: 'Location (Remote / City)', type: 'text', required: true },
+    { name: 'budget', label: 'Budget Range', type: 'text', required: false },
+    { name: 'join_time', label: 'Join Time (Immediate / 15 days / 30 days)', type: 'text', required: true },
+    { name: 'message', label: 'Notes', type: 'textarea', required: false },
+  ],
+  candidate: [
+    { name: 'name', label: 'Full Name', type: 'text', required: true },
+    { name: 'email', label: 'Email Address', type: 'email', required: true },
+    { name: 'phone', label: 'Phone Number', type: 'tel', required: false },
+    { name: 'linkedin', label: 'LinkedIn Profile', type: 'url', required: false },
+    { name: 'experience', label: 'Years of Experience', type: 'text', required: true },
+    { name: 'skills', label: 'Key Skills', type: 'text', required: true },
+    { name: 'resume', label: 'Resume Upload', type: 'file', required: true },
+    { name: 'message', label: 'Tell us about yourself', type: 'textarea', required: false },
+  ],
+};
+
+const fields = formFields[variant];
+const buttonText = variant === 'contact' ? 'Send Message' : variant === 'employer' ? 'Submit Requirement' : 'Upload Resume';
+
+---
+
+<form class="space-y-6" id={`${variant}-form`}>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {fields.filter(f => f.type !== 'textarea').map((field) => (
+      <div class={field.name === 'skills' || field.name === 'roles' ? 'md:col-span-2' : ''}>
+        <label for={field.name} class="block text-sm font-medium text-gray-700 mb-2">
+          {field.label}
+          {field.required && <span class="text-red-500">*</span>}
+        </label>
+        <input 
+          type={field.type}
+          id={field.name}
+          name={field.name}
+          required={field.required}
+          class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all"
+          placeholder={`Enter your ${field.label.toLowerCase()}`}
+        />
+      </div>
+    ))}
+  </div>
+  
+  {fields.find(f => f.type === 'textarea') && (
+    <div>
+      <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+        {fields.find(f => f.type === 'textarea')?.label}
+        {fields.find(f => f.type === 'textarea')?.required && <span class="text-red-500">*</span>}
+      </label>
+      <textarea 
+        id="message"
+        name="message"
+        rows="5"
+        required={fields.find(f => f.type === 'textarea')?.required}
+        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all resize-none"
+        placeholder="Type your message here..."
+      ></textarea>
+    </div>
+  )}
+  
+  <button 
+    type="submit"
+    class="w-full px-8 py-4 bg-black text-white text-lg font-medium rounded-lg hover:bg-gray-800 transition-colors"
+  >
+    {buttonText}
+    <svg class="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </button>
+  
+  <!-- Success Message -->
+  <div id={`${variant}-success`} class="hidden p-6 bg-green-50 border border-green-200 rounded-xl text-center">
+    <svg class="w-12 h-12 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <h3 class="text-xl font-semibold text-green-800 mb-2">Thank you!</h3>
+    <p class="text-green-600">We've received your message and will get back to you within 24 hours.</p>
+  </div>
+</form>
+
+<script define:vars={{ variant }}>
+  const form = document.getElementById(`${variant}-form`);
+  const success = document.getElementById(`${variant}-success`);
+  
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Hide form elements
+    const formElements = form.querySelectorAll('div, button');
+    formElements.forEach(el => el.classList.add('hidden'));
+    
+    // Show success message
+    success?.classList.remove('hidden');
+  });
+</script>

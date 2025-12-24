@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import StatsRow from '../components/StatsRow.astro';
+
+const stats = [
+  { value: '12+', label: 'Years in Business' },
+  { value: '500+', label: 'Engineers Placed' },
+  { value: '200+', label: 'Projects Delivered' },
+  { value: '95%', label: 'Client Retention' },
+];
+
+const values = [
+  {
+    title: 'Excellence',
+    description: 'We hire the best and hold ourselves to the highest standards in everything we do.',
+    icon: '⭐',
+  },
+  {
+    title: 'Integrity',
+    description: 'We do what we say and prioritize long-term relationships over short-term gains.',
+    icon: '🤝',
+  },
+  {
+    title: 'Impact',
+    description: 'We focus on outcomes that matter, not activity that feels busy.',
+    icon: '🎯',
+  },
+  {
+    title: 'Continuous Learning',
+    description: 'Technology evolves fast. We stay curious and keep learning.',
+    icon: '📚',
+  },
+];
+
+const team = [
+  {
+    name: 'Michael Sehetmeyer',
+    role: 'Founder & CEO',
+    bio: 'Former VP of Engineering at a Fortune 500 company. 20+ years in technology leadership.',
+  },
+  {
+    name: 'Sarah Chen',
+    role: 'Head of Consulting',
+    bio: 'Ex-Google engineer. Led platform teams at multiple unicorn startups.',
+  },
+  {
+    name: 'David Okonkwo',
+    role: 'Head of Recruitment',
+    bio: 'Built recruiting functions at 3 high-growth tech companies. Deep network in the industry.',
+  },
+  {
+    name: 'Elena Rodriguez',
+    role: 'Director of Operations',
+    bio: 'Operations expert who keeps everything running smoothly. MBA from Stanford.',
+  },
+];
+---
+
+<BaseLayout 
+  title="About Us" 
+  description="Learn about Sehetmeyer, our mission to help businesses build better systems and hire the right talent, and the team behind our success."
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="About Us"
+    subtitle="We help businesses build better systems and hire the right talent. Our goal is to make recruitment and consulting clear and trustworthy."
+  />
+
+  <!-- Principles Section -->
+  <section class="py-24 bg-white">
+    <div class="container-custom">
+      <h2 class="heading-section text-black mb-16 text-center">Our Principles</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="p-10 bg-gray-50 rounded-2xl border border-gray-100">
+          <h3 class="text-2xl font-bold text-black mb-4">Quality first</h3>
+          <p class="text-lg text-black/60 font-medium leading-relaxed">
+            We don't share profiles just to fill a list. We share people who can do the job.
+          </p>
+        </div>
+        <div class="p-10 bg-gray-50 rounded-2xl border border-gray-100">
+          <h3 class="text-2xl font-bold text-black mb-4">Clear Communication</h3>
+          <p class="text-lg text-black/60 font-medium leading-relaxed">
+            No jargon. No over-promising. Just honest feedback.
+          </p>
+        </div>
+        <div class="p-10 bg-gray-50 rounded-2xl border border-gray-100">
+          <h3 class="text-2xl font-bold text-black mb-4">Result-driven</h3>
+          <p class="text-lg text-black/60 font-medium leading-relaxed">
+            We focus on what helps you grow, whether it's a new system or a new team member.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section (Optional but kept for depth) -->
+  <section class="py-32 bg-gray-50">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="heading-section text-black mb-8">Our Goal</h2>
+        <p class="text-2xl text-black/80 font-medium leading-relaxed mb-12">
+          Technology should solve problems, not create them. We started Sehetmeyer to bridge the gap between business needs and technical execution.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h4 class="text-3xl font-bold text-black mb-4">Recruitment</h4>
+            <p class="text-lg text-black/60 font-medium">Finding engineers who fit your stack and your culture, with zero friction.</p>
+          </div>
+          <div>
+            <h4 class="text-3xl font-bold text-black mb-4">Consulting</h4>
+            <p class="text-lg text-black/60 font-medium">Strategic guidance that actually gets built and delivered.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-32 bg-green-gradient">
+    <div class="container-custom text-center">
+      <h2 class="heading-section text-black mb-6">Want to work together?</h2>
+      <p class="text-xl text-black/80 mb-12 max-w-2xl mx-auto font-medium">Let's discuss your next project or hire.</p>
+      <a href="/contact" class="inline-block px-12 py-4 bg-black text-white text-lg font-bold rounded-lg hover:bg-gray-900 transition-all shadow-2xl">Get in Touch</a>
+    </div>
+  </section>
+</BaseLayout>
+

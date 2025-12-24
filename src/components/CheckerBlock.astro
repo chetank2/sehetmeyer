@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  points: string[];
+  imageSide: 'left' | 'right';
+}
+
+const { title, description, points, imageSide } = Astro.props;
+---
+
+<section class="flex flex-col lg:flex-row h-auto lg:h-[800px]">
+  <!-- Text Content Path -->
+  <div class={`flex-1 flex items-center ${imageSide === 'right' ? 'order-1' : 'order-2'}`}>
+    <div class={`max-w-xl mx-auto px-12 py-20 ${imageSide === 'right' ? 'lg:pr-0' : 'lg:pl-0'}`}>
+      <p class="text-sm font-bold text-black uppercase tracking-widest mb-4">Why Sehetmeyer?</p>
+      <h2 class="heading-section text-black mb-8">{title}</h2>
+      <div class="space-y-6">
+        {points.map((point) => (
+          <div>
+            <p class="text-lg font-bold text-black mb-1">{point.split(':')[0]}</p>
+            <p class="text-gray-600 leading-relaxed">{point.split(':')[1]}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Image/Gradient Block -->
+  <div class={`flex-1 relative bg-green-gradient overflow-hidden ${imageSide === 'right' ? 'order-2' : 'order-1'} h-[400px] lg:h-full`}>
+    <div class="absolute inset-0 bg-pattern-stripes opacity-20"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <h3 class="text-black text-[64px] font-bold text-center leading-tight drop-shadow-sm px-8">
+        {title === 'Why Sehetmeyer ?' ? 'Why Sehetmeyer ?' : 'Our Process'}
+      </h3>
+    </div>
+  </div>
+</section>

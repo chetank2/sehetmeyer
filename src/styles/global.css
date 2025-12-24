@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000;
+  --color-secondary: #374151;
+  --color-accent: #4AF28F;
+  --color-accent-dark: #34D399;
+
+  --font-sans: 'Helvetica Neue', 'Inter', system-ui, sans-serif;
+
+  /* Heading Scale from Figma */
+  --text-hero: 100px;
+  --text-h1: 64px;
+  --text-h2: 40px;
+  --text-h3: 24px;
+}
+
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+@layer utilities {
+  .bg-green-gradient {
+    background: linear-gradient(135deg, #4AF28F 0%, #34D399 100%);
+  }
+
+  /* Vertical stripe pattern seen in Figma Hero */
+  .bg-pattern-stripes {
+    background-image: linear-gradient(to right,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px);
+    background-size: 15% 100%;
+  }
+
+  .heading-hero {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-section {
+    font-size: var(--text-h1);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .heading-card {
+    font-size: var(--text-h2);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .container-custom {
+    max-width: 1598px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 161px;
+    padding-right: 161px;
+  }
+
+  @media (max-width: 1024px) {
+    .heading-hero {
+      font-size: 64px;
+    }
+
+    .heading-section {
+      font-size: 48px;
+    }
+
+    .container-custom {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { blogPosts, getBlogPost, type BlogPost } from '../../data/blog-posts';
+
+export function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout 
+  title={post.title}
+  description={post.excerpt}
+>
+  <!-- Article Header -->
+  <article class="py-32 bg-white">
+    <div class="container-custom">
+      <div class="max-w-4xl">
+        <!-- Meta -->
+        <div class="flex items-center gap-6 mb-10">
+          <span class="px-3 py-1 bg-accent/20 rounded text-sm font-bold text-black uppercase tracking-widest">{post.category}</span>
+          <span class="text-black/40 font-bold uppercase tracking-widest">{post.date}</span>
+          <span class="text-black/40 font-bold uppercase tracking-widest">{post.readTime}</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="heading-hero text-black mb-12 leading-tight">
+          {post.title}
+        </h1>
+
+        <!-- Excerpt -->
+        <p class="text-2xl text-black/60 font-medium leading-relaxed mb-20 italic">
+          {post.excerpt}
+        </p>
+
+        <!-- Content -->
+        <div class="prose prose-2xl prose-black max-w-none">
+          <Fragment set:html={post.content.split('\n').map(line => {
+            if (line.startsWith('## ')) {
+              return `<h2 class="text-4xl font-bold text-black mt-20 mb-8">${line.replace('## ', '')}</h2>`;
+            } else if (line.startsWith('- ')) {
+              return `<li class="text-xl text-black/60 font-medium ml-8 mb-4">${line.replace('- ', '')}</li>`;
+            } else if (line.trim() === '') {
+              return '';
+            } else {
+              return `<p class="text-xl text-black/60 font-medium leading-relaxed mb-8">${line}</p>`;
+            }
+          }).join('')} />
+        </div>
+
+        <!-- Author -->
+        <div class="mt-24 pt-12 border-t border-gray-100">
+          <div class="flex items-center gap-6">
+            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center font-bold text-black text-xl">
+              ST
+            </div>
+            <div>
+              <p class="text-xl font-bold text-black">Sehetmeyer Team</p>
+              <p class="text-black/60 font-medium">Insights from our consulting and recruitment experts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Back Link -->
+  <section class="py-16 bg-gray-50 border-t border-gray-100">
+    <div class="container-custom">
+      <a 
+        href="/insights"
+        class="inline-flex items-center text-black font-bold text-lg hover:gap-4 transition-all"
+      >
+        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        Back to all articles
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTASection 
+    title="Need expert help?"
+    description="Let's discuss how we can help with your technology or talent challenges."
+    primaryCta={{ text: "Talk to an Expert", href: "/contact" }}
+    variant="dark"
+  />
+</BaseLayout>
+

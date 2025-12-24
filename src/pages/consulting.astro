@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const services = [
+  {
+    title: 'System Architecture & Design',
+    description: 'Design scalable, maintainable systems that grow with your business. We help you make the right technology decisions from the start.',
+    icon: '🏗️',
+  },
+  {
+    title: 'Cloud Migration',
+    description: 'Move to the cloud with confidence. We plan and execute migrations to AWS, GCP, or Azure with minimal disruption.',
+    icon: '☁️',
+  },
+  {
+    title: 'DevOps & CI/CD',
+    description: 'Implement modern development practices that accelerate delivery and improve reliability.',
+    icon: '🔄',
+  },
+  {
+    title: 'Security & Compliance',
+    description: 'Protect your systems and data with comprehensive security audits and compliance implementations.',
+    icon: '🔒',
+  },
+  {
+    title: 'Legacy Modernization',
+    description: 'Transform outdated systems into modern, maintainable platforms without disrupting business operations.',
+    icon: '🔧',
+  },
+  {
+    title: 'Technical Due Diligence',
+    description: 'Evaluate technology stacks, teams, and processes for M&A, investments, or strategic planning.',
+    icon: '📋',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How do you engage with clients?',
+    answer: 'We offer flexible engagement models including project-based consulting, staff augmentation, and fractional CTO services. Most engagements start with a discovery phase to understand your needs before proposing the best approach.',
+  },
+  {
+    question: 'What is your typical project timeline?',
+    answer: 'Timelines vary based on scope. Architecture reviews typically take 2-4 weeks. Cloud migrations range from 2-6 months depending on complexity. We always provide detailed timelines during the proposal phase.',
+  },
+  {
+    question: 'Do you work with specific technologies?',
+    answer: 'We are technology-agnostic and work with the best tools for your situation. Our expertise spans modern languages (Go, TypeScript, Python, Rust), cloud platforms (AWS, GCP, Azure), and frameworks across the full stack.',
+  },
+  {
+    question: 'How do you ensure knowledge transfer?',
+    answer: 'Knowledge transfer is built into every engagement. We document decisions, train your team, and create runbooks to ensure you can maintain and extend our work independently.',
+  },
+];
+---
+
+<BaseLayout 
+  title="IT Consulting" 
+  description="Expert IT consulting services including system architecture, cloud migration, DevOps, and security. Build better systems with Sehetmeyer."
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Practical consulting for real business results"
+    subtitle="Strategy + execution. We help you plan, build, and improve."
+    primaryCta={{ text: "Schedule a Discovery Call", href: "/contact" }}
+  />
+
+  <!-- Problems We Solve -->
+  <section class="py-24 bg-white">
+    <div class="container-custom">
+      <h2 class="heading-section text-black mb-16">Problems We Solve</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          "Delivery delays and unclear priorities",
+          "Old systems and tech debt",
+          "Scaling issues and performance problems",
+          "Cloud migration confusion",
+          "Lack of process and documentation"
+        ].map((problem) => (
+          <div class="p-8 bg-gray-50 rounded-xl border border-gray-100">
+            <p class="text-xl font-bold text-black">{problem}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Consulting Areas -->
+  <section class="py-24 bg-gray-50">
+    <div class="container-custom">
+      <h2 class="heading-section text-black mb-16">Our Consulting Areas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-white p-12 rounded-2xl shadow-sm">
+          <h3 class="text-2xl font-bold text-black mb-4">Product & UX</h3>
+          <p class="text-lg text-black/60 font-medium">Clear flows, better user experience</p>
+        </div>
+        <div class="bg-white p-12 rounded-2xl shadow-sm">
+          <h3 class="text-2xl font-bold text-black mb-4">Engineering & Architecture</h3>
+          <p class="text-lg text-black/60 font-medium">Strong structure, scalable systems</p>
+        </div>
+        <div class="bg-white p-12 rounded-2xl shadow-sm">
+          <h3 class="text-2xl font-bold text-black mb-4">Cloud & DevOps</h3>
+          <p class="text-lg text-black/60 font-medium">Reliable deployment and monitoring</p>
+        </div>
+        <div class="bg-white p-12 rounded-2xl shadow-sm">
+          <h3 class="text-2xl font-bold text-black mb-4">Delivery Process</h3>
+          <p class="text-lg text-black/60 font-medium">Agile planning, clean execution</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work -->
+  <section class="py-32 bg-white">
+    <div class="container-custom">
+      <h2 class="heading-section text-black text-center mb-20">How We Work</h2>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        {[
+          { step: "1", title: "Discovery", desc: "Your goals, systems, gaps" },
+          { step: "2", title: "Audit", desc: "What is working, what is risky" },
+          { step: "3", title: "Plan", desc: "Roadmap with timeline" },
+          { step: "4", title: "Execute", desc: "Deliver improvements" },
+          { step: "5", title: "Support", desc: "After delivery" }
+        ].map((item) => (
+          <div class="text-center">
+            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-black">{item.step}</div>
+            <h3 class="text-xl font-bold text-black mb-2">{item.title}</h3>
+            <p class="text-sm text-black/60 font-medium">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-32 bg-green-gradient">
+    <div class="container-custom text-center">
+      <h2 class="heading-section text-black mb-6">Want a quick audit?</h2>
+      <p class="text-xl text-black/80 mb-12 max-w-2xl mx-auto font-medium">Share your current setup. We’ll suggest next steps.</p>
+      <a href="/contact" class="inline-block px-12 py-4 bg-black text-white text-lg font-bold rounded-lg hover:bg-gray-900 transition-all shadow-2xl">Request an Audit</a>
+    </div>
+  </section>
+</BaseLayout>
+
